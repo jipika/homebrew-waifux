@@ -1,8 +1,8 @@
 cask "waifux" do
-  version "38.0.128"
-  sha256 "14c2cb08251f826d2a5f74997af3f301454c00cb020c92da590080d96ef5ba5c"
+  version "38.0.129"
+  sha256 "a50fbcaaff70b511e6120278551267b69204e106ca0480e98de4256d837db925"
 
-  url "https://github.com/jipika/WaifuX/releases/download/v38.0.128/WaifuX.dmg"
+  url "https://github.com/jipika/WaifuX/releases/download/v38.0.129/WaifuX.dmg"
   name "WaifuX"
   desc "Beautiful anime wallpaper and content browser"
   homepage "https://github.com/jipika/WaifuX"
@@ -16,8 +16,22 @@ cask "waifux" do
 
   app "WaifuX.app"
 
+  # brew 更新是先删旧 bundle 再拷新 bundle，macOS 会重置扩展启用状态。
+  # lsregister -f 重新注册 App bundle（含内嵌 .appex），
+  # pluginkit -e use 显式启用扩展，
+  # 最后重启 WallpaperAgent 使其重新加载扩展列表（清除内存缓存）。
+  postflight do
+    system_command "/System/Library/Frameworks/CoreServices.frameworks/Frameworks/LaunchServices.framework/Support/lsregister",
+      args: ["-f", "#{staged_path}/WaifuX.app"]
+    system_command "/usr/bin/pluginkit",
+      args: ["-e", "use", "-i", "com.waifux.app.wallpaperextension"]
+    system_command "/usr/bin/killall",
+      args: ["WallpaperAgent"],
+      print_stderr: false
+  end
+
   zap trash: [
-    "~/Library/Application Support/WaifuX",
+    "~/Library/Application Support/Waifux",
     "~/Library/Caches/com.waifux.app",
     "~/Library/Preferences/com.waifux.app.plist",
     "~/Library/Saved Application State/com.waifux.app.savedState",
