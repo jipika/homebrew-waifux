@@ -21,7 +21,7 @@ cask "waifux" do
   # pluginkit -e use 显式启用扩展，
   # 最后重启 WallpaperAgent 使其重新加载扩展列表（清除内存缓存）。
   postflight do
-    system_command "/System/Library/Frameworks/CoreServices.frameworks/Frameworks/LaunchServices.framework/Support/lsregister",
+    system_command "/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister",
       args: ["-f", "#{staged_path}/WaifuX.app"]
     system_command "/usr/bin/pluginkit",
       args: ["-e", "use", "-i", "com.waifux.app.wallpaperextension"]
