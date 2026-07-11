@@ -1,8 +1,8 @@
 cask "waifux" do
-  version "38.0.129"
-  sha256 "a50fbcaaff70b511e6120278551267b69204e106ca0480e98de4256d837db925"
+  version "38.0.130"
+  sha256 "87d967592fb0104d127affe74732911d414c4c1b86cc07204f9bd9014c761452"
 
-  url "https://github.com/jipika/WaifuX/releases/download/v38.0.129/WaifuX.dmg"
+  url "https://github.com/jipika/WaifuX/releases/download/v38.0.130/WaifuX.dmg"
   name "WaifuX"
   desc "Beautiful anime wallpaper and content browser"
   homepage "https://github.com/jipika/WaifuX"
@@ -31,7 +31,7 @@ cask "waifux" do
   end
 
   zap trash: [
-    "~/Library/Application Support/Waifux",
+    "~/Library/Application Support/WaifuX",
     "~/Library/Caches/com.waifux.app",
     "~/Library/Preferences/com.waifux.app.plist",
     "~/Library/Saved Application State/com.waifux.app.savedState",
