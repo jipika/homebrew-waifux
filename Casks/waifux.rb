@@ -1,8 +1,8 @@
 cask "waifux" do
-  version "38.0.141"
-  sha256 "fbd5015159fb6e7cd9c4b7c39c2a39e841c64de4dddc324267b55d56ab7f58c3"
+  version "38.0.142"
+  sha256 "aa66605e1a234274a215cf4a39ce3ec5adb4e1636692f8c02cca2a9c98c83d8b"
 
-  url "https://github.com/jipika/WaifuX/releases/download/v38.0.141/WaifuX.dmg"
+  url "https://github.com/jipika/WaifuX/releases/download/v38.0.142/WaifuX.dmg"
   name "WaifuX"
   desc "Beautiful anime wallpaper and content browser"
   homepage "https://github.com/jipika/WaifuX"
