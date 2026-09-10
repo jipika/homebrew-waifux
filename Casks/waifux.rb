@@ -1,8 +1,8 @@
 cask "waifux" do
-  version "38.0.148"
-  sha256 "bdcd26e93f2a0513ded8bab2295726328cdf3078ad0b49bdfb6c0814e0a47da4"
+  version "38.0.149"
+  sha256 "eafb7293b99bce22da27bdd6de7df48ed24c25acc1780c213e5a2ea310b422bb"
 
-  url "https://github.com/jipika/WaifuX/releases/download/v38.0.148/WaifuX.dmg"
+  url "https://github.com/jipika/WaifuX/releases/download/v38.0.149/WaifuX.dmg"
   name "WaifuX"
   desc "Beautiful anime wallpaper and content browser"
   homepage "https://github.com/jipika/WaifuX"
@@ -20,12 +20,12 @@ cask "waifux" do
   # lsregister -f 重新注册 App bundle（含内嵌 .appex），
   # pluginkit -e use 显式启用扩展，
   # 最后重启 WallpaperAgent 使其重新加载扩展列表（清除内存缓存）。
-  postflight do
-    system_command "/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister",
-      args: ["-f", "#{staged_path}/WaifuX.app"]
-    system_command "/usr/bin/pluginkit",
+  postflight_steps do
+    run "/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister",
+      args: ["-f", "{{staged_path}}/WaifuX.app"]
+    run "/usr/bin/pluginkit",
       args: ["-e", "use", "-i", "com.waifux.app.wallpaperextension"]
-    system_command "/usr/bin/killall",
+    run "/usr/bin/killall",
       args: ["WallpaperAgent"],
       print_stderr: false
   end
