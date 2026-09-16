@@ -1,6 +1,6 @@
 cask "waifux" do
-  version "38.0.151"
-  sha256 "82bfe1b10553c67fe9143febd62d5bc9b200771f2ff454f1b9ab643cb73ee6d1"
+  version "38.0.152"
+  sha256 "aa8da4e2297a9a9b2487ea3b66819cc45bc0ce7e8b8f37766a60005a28972fd0"
 
   url "https://github.com/jipika/WaifuX/releases/download/v#{version}/WaifuX.dmg"
   name "WaifuX"
