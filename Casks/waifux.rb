@@ -1,8 +1,17 @@
 cask "waifux" do
-  version "38.0.153"
-  sha256 "5e6ff43bc2d49b15e7979c4e57d317b8789c75aa559be78aeefa1952320c2c1f"
+  version "38.0.154"
 
-  url "https://github.com/jipika/WaifuX/releases/download/v#{version}/WaifuX.dmg"
+  # 按架构分发：arm64 包含场景渲染器全家桶；x86_64 包不含（wgpu 生态暂为 arm64-only）。
+  on_arm do
+    sha256 "83bc016681f68ac1e7f9856922e54f25dabd239e232d5e373d5fb6e5cf2bf41f"
+
+    url "https://github.com/jipika/WaifuX/releases/download/v#{version}/WaifuX-arm64.dmg"
+  end
+  on_intel do
+    sha256 "a6ffa3143ffbbd593530c21bdc4c6449b7e555516313136eb190180ae7ea2f9b"
+
+    url "https://github.com/jipika/WaifuX/releases/download/v#{version}/WaifuX-x86_64.dmg"
+  end
   name "WaifuX"
   desc "Beautiful anime wallpaper and content browser"
   homepage "https://github.com/jipika/WaifuX"
