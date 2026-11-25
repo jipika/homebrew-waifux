@@ -1,14 +1,14 @@
 cask "waifux" do
-  version "38.0.160"
+  version "38.0.161"
 
   # 按架构分发：两个包各自携带本架构的渲染器全家桶（wgpu / DXC / ffmpeg / web daemon）。
   on_arm do
-    sha256 "1770a5c28a99203d1548c4e1b30d45d3176c8fc6a96217c8d24c03129791ece8"
+    sha256 "1d18f41bde11405156dc7a70453aabc9ab40a9e53ada985113400595f11eff89"
 
     url "https://github.com/jipika/WaifuX/releases/download/v#{version}/WaifuX-arm64.dmg"
   end
   on_intel do
-    sha256 "6da6886a246cf14f01432477bc50f848e7b6fdb51deb07b957563fcc28dfe738"
+    sha256 "03f25cf3fe71c09c429c2bcdcaec1cf0c84168c41d9eb858e8da7afdc48f47a0"
 
     url "https://github.com/jipika/WaifuX/releases/download/v#{version}/WaifuX-x86_64.dmg"
   end
